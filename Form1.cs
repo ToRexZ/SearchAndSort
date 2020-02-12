@@ -31,6 +31,7 @@ namespace SøgningOgSortering
                 lstRandom.Add(randomNumber.Next(0, 100));
             }
             lsbInput.DataSource = lstRandom;
+            //hejsa dette er en tilfælidg kommentar
         }
     }
 }
