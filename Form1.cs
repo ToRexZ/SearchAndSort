@@ -36,7 +36,10 @@ namespace SøgningOgSortering
 
         private void btnSort_Click(object sender, EventArgs e)
         {
+            var stopWatch = System.Diagnostics.Stopwatch.StartNew();
             lsbOutput.DataSource = BubbleSort();
+            stopWatch.Stop();
+            lblTime.Text = "Time: " + stopWatch.ElapsedMilliseconds.ToString() + " ms";
         }
 
         public List<int> BubbleSort()
