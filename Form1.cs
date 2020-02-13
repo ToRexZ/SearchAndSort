@@ -25,8 +25,8 @@ namespace SøgningOgSortering
             lstSort.Clear();
             lstRandom.Clear();
             Random randomNumber = new Random();
-            lsbInput.DataSource = null;
-            lsbOutput.DataSource = null;
+            ClearOut();
+            ClearInp();
 
             for (int i = 0; i < 100; i++)
             {
@@ -58,6 +58,22 @@ namespace SøgningOgSortering
                 }
             }
             return lstSort;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearOut();
+        }
+
+        public void ClearOut()
+        {
+            lsbOutput.DataSource = null;
+            
+        }
+
+        public void ClearInp()
+        {
+            lsbInput.DataSource = null;
         }
     }
 }
