@@ -26,12 +26,18 @@ namespace SøgningOgSortering
             Random randomNumber = new Random();
             ClearOut();
             ClearInp();
-
-            for (int i = 0; i < 100; i++)
+            if (txtInput.Text != string.Empty)
             {
-                lstRandom.Add(randomNumber.Next(0, 100));
+                for (int i = 0; i < int.Parse(txtInput.Text); i++)
+                {
+                    lstRandom.Add(randomNumber.Next(0, 100));
+                }
+                lsbInput.DataSource = lstRandom;
             }
-            lsbInput.DataSource = lstRandom;
+            else
+            {
+                MessageBox.Show("Enter the amount of numbers");
+            }
         }
 
         private void btnSort_Click(object sender, EventArgs e)

@@ -36,6 +36,8 @@
             this.btnSort = new System.Windows.Forms.Button();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblCycles = new System.Windows.Forms.Label();
+            this.txtInput = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGenerate
@@ -114,11 +116,29 @@
             this.lblCycles.TabIndex = 7;
             this.lblCycles.Text = "Cycles: ";
             // 
+            // txtInput
+            // 
+            this.txtInput.Location = new System.Drawing.Point(191, 49);
+            this.txtInput.Name = "txtInput";
+            this.txtInput.Size = new System.Drawing.Size(100, 22);
+            this.txtInput.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(188, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 17);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Numbers:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtInput);
             this.Controls.Add(this.lblCycles);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.btnSort);
@@ -144,6 +164,8 @@
         private System.Windows.Forms.Button btnSort;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblCycles;
+        private System.Windows.Forms.TextBox txtInput;
+        private System.Windows.Forms.Label label1;
     }
 }
 
