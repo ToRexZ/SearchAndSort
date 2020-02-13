@@ -91,6 +91,7 @@
             this.btnSort.TabIndex = 5;
             this.btnSort.Text = "Sort";
             this.btnSort.UseVisualStyleBackColor = true;
+            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
             // 
             // lblTime
             // 

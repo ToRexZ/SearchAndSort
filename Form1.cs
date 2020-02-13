@@ -13,7 +13,7 @@ namespace SøgningOgSortering
     public partial class Form1 : Form
     {
         List<int> lstRandom = new List<int>();
-        
+        List<int> lstSort = new List<int>();
 
         public Form1()
         {
@@ -22,16 +22,42 @@ namespace SøgningOgSortering
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
+            lstSort.Clear();
             lstRandom.Clear();
             Random randomNumber = new Random();
             lsbInput.DataSource = null;
+            lsbOutput.DataSource = null;
 
             for (int i = 0; i < 100; i++)
             {
                 lstRandom.Add(randomNumber.Next(0, 100));
             }
             lsbInput.DataSource = lstRandom;
-            //hejsa dette er en tilfælidg kommentar
+        }
+
+        private void btnSort_Click(object sender, EventArgs e)
+        {
+            
+            lsbOutput.DataSource = BubbleSort();
+        }
+
+        public List<int> BubbleSort()
+        {
+
+            lstSort = lstRandom;
+            for (int i = 0; i < lstSort.Count-1; i++)
+            {
+                for (int j = 0; j < lstSort.Count-1; j++)
+                {
+                    if (lstSort[j] > lstSort[j+1])
+                    {
+                        int temp = lstSort[j+1];
+                        lstSort[j+1] = lstSort[j];
+                        lstSort[j] = temp;
+                    }
+                }
+            }
+            return lstSort;
         }
     }
 }
