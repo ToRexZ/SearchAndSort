@@ -102,7 +102,7 @@
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(200, 40);
             this.lblTime.TabIndex = 6;
-            this.lblTime.Text = "label1";
+            this.lblTime.Text = "Time:";
             // 
             // lblCycles
             // 
@@ -112,7 +112,7 @@
             this.lblCycles.Name = "lblCycles";
             this.lblCycles.Size = new System.Drawing.Size(200, 40);
             this.lblCycles.TabIndex = 7;
-            this.lblCycles.Text = "label2";
+            this.lblCycles.Text = "Cycles: ";
             // 
             // Form1
             // 

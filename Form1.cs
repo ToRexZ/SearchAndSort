@@ -22,7 +22,6 @@ namespace SøgningOgSortering
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-            lstSort.Clear();
             lstRandom.Clear();
             Random randomNumber = new Random();
             ClearOut();
@@ -37,18 +36,18 @@ namespace SøgningOgSortering
 
         private void btnSort_Click(object sender, EventArgs e)
         {
-            
             lsbOutput.DataSource = BubbleSort();
         }
 
         public List<int> BubbleSort()
         {
-
+            int cycles = 0;
             lstSort = lstRandom;
             for (int i = 0; i < lstSort.Count-1; i++)
             {
-                for (int j = 0; j < lstSort.Count-1; j++)
+                for (int j = 0; j < lstSort.Count-1-i; j++)
                 {
+                    cycles++;
                     if (lstSort[j] > lstSort[j+1])
                     {
                         int temp = lstSort[j+1];
@@ -57,6 +56,7 @@ namespace SøgningOgSortering
                     }
                 }
             }
+            lblCycles.Text = "Cycles: " + cycles.ToString();
             return lstSort;
         }
 
@@ -67,8 +67,10 @@ namespace SøgningOgSortering
 
         public void ClearOut()
         {
+            lstSort = null;
             lsbOutput.DataSource = null;
-            
+            lblCycles.Text = "Cycles: ";
+            lblTime.Text = "Time: ";
         }
 
         public void ClearInp()
