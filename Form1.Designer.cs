@@ -81,10 +81,14 @@
             // cmbMethod
             // 
             this.cmbMethod.FormattingEnabled = true;
+            this.cmbMethod.Items.AddRange(new object[] {
+            "Bubble",
+            "Merge"});
             this.cmbMethod.Location = new System.Drawing.Point(314, 93);
             this.cmbMethod.Name = "cmbMethod";
             this.cmbMethod.Size = new System.Drawing.Size(162, 24);
             this.cmbMethod.TabIndex = 4;
+            this.cmbMethod.Text = "Choose algorithm";
             // 
             // btnSort
             // 
