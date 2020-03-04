@@ -29,12 +29,30 @@ namespace SøgningOgSortering
             ClearInp();
             if (!string.IsNullOrWhiteSpace(txtRange.Text) && txtRange.Text.Contains("-") && !string.IsNullOrWhiteSpace(txtInput.Text))
             {
-                string[] subStrings = txtRange.Text.Split('-');
-                for (int i = 0; i < int.Parse(txtInput.Text); i++)
+                
+                var subStrings = txtRange.Text.Split('-').Select(val => {
+                    try 
+                    { 
+                        return int.Parse(val); 
+                    }
+                    catch (Exception _e)
+                    {
+                        MessageBox.Show("Could not parse string to int in 'Range'");
+                        return 0;
+                    }
+                }).ToArray();
+
+                int temp;
+                if (Int32.TryParse(txtInput.Text, out temp))
                 {
-                    lstRandom.Add(randomNumber.Next(int.Parse(subStrings[0]), int.Parse(subStrings[1])+1));
+                    for (int i = 0; i < temp; i++)
+                    {
+                        lstRandom.Add(randomNumber.Next(subStrings[0], subStrings[1] + 1));
+                    }
+                    lsbInput.DataSource = lstRandom;
                 }
-                lsbInput.DataSource = lstRandom;
+                else MessageBox.Show("Could not parse string to int in 'Numbers'");
+
             }
             else
             {
