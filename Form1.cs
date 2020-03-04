@@ -32,7 +32,7 @@ namespace SøgningOgSortering
                 string[] subStrings = txtRange.Text.Split('-');
                 for (int i = 0; i < int.Parse(txtInput.Text); i++)
                 {
-                    lstRandom.Add(randomNumber.Next(int.Parse(subStrings[0]), int.Parse(subStrings[1])));
+                    lstRandom.Add(randomNumber.Next(int.Parse(subStrings[0]), int.Parse(subStrings[1])+1));
                 }
                 lsbInput.DataSource = lstRandom;
             }

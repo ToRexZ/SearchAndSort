@@ -128,6 +128,7 @@
             this.txtInput.Name = "txtInput";
             this.txtInput.Size = new System.Drawing.Size(100, 22);
             this.txtInput.TabIndex = 8;
+            this.txtInput.Text = "100";
             // 
             // label1
             // 
@@ -144,6 +145,7 @@
             this.txtRange.Name = "txtRange";
             this.txtRange.Size = new System.Drawing.Size(100, 22);
             this.txtRange.TabIndex = 10;
+            this.txtRange.Text = "1-100";
             // 
             // lblRange
             // 
