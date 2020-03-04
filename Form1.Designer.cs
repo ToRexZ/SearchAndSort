@@ -38,6 +38,8 @@
             this.lblCycles = new System.Windows.Forms.Label();
             this.txtInput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtRange = new System.Windows.Forms.TextBox();
+            this.lblRange = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGenerate
@@ -122,7 +124,7 @@
             // 
             // txtInput
             // 
-            this.txtInput.Location = new System.Drawing.Point(191, 49);
+            this.txtInput.Location = new System.Drawing.Point(191, 33);
             this.txtInput.Name = "txtInput";
             this.txtInput.Size = new System.Drawing.Size(100, 22);
             this.txtInput.TabIndex = 8;
@@ -130,17 +132,35 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(188, 29);
+            this.label1.Location = new System.Drawing.Point(188, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 17);
             this.label1.TabIndex = 9;
             this.label1.Text = "Numbers:";
+            // 
+            // txtRange
+            // 
+            this.txtRange.Location = new System.Drawing.Point(191, 78);
+            this.txtRange.Name = "txtRange";
+            this.txtRange.Size = new System.Drawing.Size(100, 22);
+            this.txtRange.TabIndex = 10;
+            // 
+            // lblRange
+            // 
+            this.lblRange.AutoSize = true;
+            this.lblRange.Location = new System.Drawing.Point(188, 58);
+            this.lblRange.Name = "lblRange";
+            this.lblRange.Size = new System.Drawing.Size(54, 17);
+            this.lblRange.TabIndex = 11;
+            this.lblRange.Text = "Range:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblRange);
+            this.Controls.Add(this.txtRange);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtInput);
             this.Controls.Add(this.lblCycles);
@@ -170,6 +190,8 @@
         private System.Windows.Forms.Label lblCycles;
         private System.Windows.Forms.TextBox txtInput;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtRange;
+        private System.Windows.Forms.Label lblRange;
     }
 }
 

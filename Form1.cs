@@ -20,24 +20,25 @@ namespace SøgningOgSortering
         {
             InitializeComponent();
         }
-        //
+        
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             lstRandom.Clear();
             Random randomNumber = new Random();
             ClearOut();
             ClearInp();
-            if (txtInput.Text != string.Empty)
+            if (!string.IsNullOrWhiteSpace(txtRange.Text) && txtRange.Text.Contains("-") && !string.IsNullOrWhiteSpace(txtInput.Text))
             {
+                string[] subStrings = txtRange.Text.Split('-');
                 for (int i = 0; i < int.Parse(txtInput.Text); i++)
                 {
-                    lstRandom.Add(randomNumber.Next(0, 100));
+                    lstRandom.Add(randomNumber.Next(int.Parse(subStrings[0]), int.Parse(subStrings[1])));
                 }
                 lsbInput.DataSource = lstRandom;
             }
             else
             {
-                MessageBox.Show("Enter the amount of numbers");
+                MessageBox.Show("Enter numberspecifications. Range of numbers is seperated by a '-'");
             }
         }
 
