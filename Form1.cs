@@ -35,7 +35,7 @@ namespace SøgningOgSortering
                     { 
                         return int.Parse(val); 
                     }
-                    catch (Exception _e)
+                    catch (Exception)
                     {
                         MessageBox.Show("Could not parse string to int in 'Range'");
                         return 0;
@@ -75,6 +75,11 @@ namespace SøgningOgSortering
                         lblCycles.Text = "Cycles: " + cycles.ToString();
                         cycles = 0;
                         break;
+
+                    case 2:
+
+                        break;
+
                 }
                 stopWatch.Stop();
                 lblTime.Text = "Time: " + stopWatch.ElapsedMilliseconds.ToString() + " ms";
@@ -90,19 +95,20 @@ namespace SøgningOgSortering
         {
             if (lstRandom.Count <= 1) return lstRandom;
 
+            List<int> lstSort = lstRandom;
             List<int> right = new List<int>();
             List<int> left = new List<int>();
 
-            int middle = lstRandom.Count / 2;
+            int middle = lstSort.Count / 2;
 
             for (int i = 0; i < middle; i++)
             {
-                left.Add(lstRandom[i]);
+                left.Add(lstSort[i]);
             }
 
-            for (int i = middle; i < lstRandom.Count; i++)
+            for (int i = middle; i < lstSort.Count; i++)
             {
-                right.Add(lstRandom[i]);
+                right.Add(lstSort[i]);
             }
 
             left = Divide(left);
@@ -185,6 +191,21 @@ namespace SøgningOgSortering
         public void ClearInp()
         {
             lsbInput.DataSource = null;
+        }
+
+        public List<int> Quicksort(List<int> lstRandom)
+        {
+            List<int> lstSort = lstRandom;
+
+            int low = lstSort.First();
+            int high = lstSort.Last();
+
+            if (low < high)
+            {
+                
+            }
+
+            return null;
         }
     }
 }
