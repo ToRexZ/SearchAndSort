@@ -62,10 +62,10 @@ namespace SøgningOgSortering
 
         private void btnSort_Click(object sender, EventArgs e)
         {
-            if (cmbMethod.SelectedIndex != -1) 
+            if (cmdMethod.SelectedIndex != -1) 
             {
                 var stopWatch = System.Diagnostics.Stopwatch.StartNew();
-                switch (cmbMethod.SelectedIndex)
+                switch (cmdMethod.SelectedIndex)
                 {
                     case 0:
                         lsbOutput.DataSource = BubbleSort();
@@ -77,9 +77,8 @@ namespace SøgningOgSortering
                         break;
 
                     case 2:
-
+                        lsbOutput.DataSource = Quicksort(lstRandom);
                         break;
-
                 }
                 stopWatch.Stop();
                 lblTime.Text = "Time: " + stopWatch.ElapsedMilliseconds.ToString() + " ms";
@@ -193,13 +192,14 @@ namespace SøgningOgSortering
             lsbInput.DataSource = null;
         }
 
-        public List<int> Quicksort(List<int> lstRandom)
+        public List<int> Quicksort(List<int> lstRandom, int left, int right)
         {
             List<int> lstSort = lstRandom;
 
+            if (left < right)
             int low = lstSort.First();
             int high = lstSort.Last();
-
+            
             if (low < high)
             {
                 
