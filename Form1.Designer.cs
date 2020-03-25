@@ -45,10 +45,10 @@
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(10, 10);
-            this.btnGenerate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGenerate.Location = new System.Drawing.Point(9, 9);
+            this.btnGenerate.Margin = new System.Windows.Forms.Padding(2);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(152, 92);
+            this.btnGenerate.Size = new System.Drawing.Size(130, 80);
             this.btnGenerate.TabIndex = 0;
             this.btnGenerate.Text = "Generer";
             this.btnGenerate.UseVisualStyleBackColor = true;
@@ -56,10 +56,10 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(524, 13);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClear.Location = new System.Drawing.Point(449, 11);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(164, 89);
+            this.btnClear.Size = new System.Drawing.Size(141, 77);
             this.btnClear.TabIndex = 1;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -68,40 +68,41 @@
             // lsbInput
             // 
             this.lsbInput.FormattingEnabled = true;
-            this.lsbInput.ItemHeight = 15;
-            this.lsbInput.Location = new System.Drawing.Point(13, 117);
-            this.lsbInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lsbInput.Location = new System.Drawing.Point(11, 101);
+            this.lsbInput.Margin = new System.Windows.Forms.Padding(2);
             this.lsbInput.Name = "lsbInput";
-            this.lsbInput.Size = new System.Drawing.Size(149, 214);
+            this.lsbInput.Size = new System.Drawing.Size(128, 186);
             this.lsbInput.TabIndex = 2;
             // 
             // lsbOutput
             // 
             this.lsbOutput.FormattingEnabled = true;
-            this.lsbOutput.ItemHeight = 15;
-            this.lsbOutput.Location = new System.Drawing.Point(527, 121);
-            this.lsbOutput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lsbOutput.Location = new System.Drawing.Point(452, 105);
+            this.lsbOutput.Margin = new System.Windows.Forms.Padding(2);
             this.lsbOutput.Name = "lsbOutput";
-            this.lsbOutput.Size = new System.Drawing.Size(161, 274);
+            this.lsbOutput.Size = new System.Drawing.Size(139, 238);
             this.lsbOutput.TabIndex = 3;
             // 
             // cmbMethod
             // 
             this.cmbMethod.FormattingEnabled = true;
-            this.cmbMethod.Items.AddRange(new object[] {"Bubble", "Merge"});
-            this.cmbMethod.Location = new System.Drawing.Point(275, 88);
-            this.cmbMethod.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbMethod.Items.AddRange(new object[] {
+            "Bubble",
+            "Merge",
+            "Quick"});
+            this.cmbMethod.Location = new System.Drawing.Point(236, 76);
+            this.cmbMethod.Margin = new System.Windows.Forms.Padding(2);
             this.cmbMethod.Name = "cmbMethod";
-            this.cmbMethod.Size = new System.Drawing.Size(142, 23);
+            this.cmbMethod.Size = new System.Drawing.Size(122, 21);
             this.cmbMethod.TabIndex = 4;
             this.cmbMethod.Text = "Choose algorithm";
             // 
             // btnSort
             // 
-            this.btnSort.Location = new System.Drawing.Point(260, 164);
-            this.btnSort.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSort.Location = new System.Drawing.Point(223, 142);
+            this.btnSort.Margin = new System.Windows.Forms.Padding(2);
             this.btnSort.Name = "btnSort";
-            this.btnSort.Size = new System.Drawing.Size(178, 81);
+            this.btnSort.Size = new System.Drawing.Size(153, 70);
             this.btnSort.TabIndex = 5;
             this.btnSort.Text = "Sort";
             this.btnSort.UseVisualStyleBackColor = true;
@@ -110,68 +111,68 @@
             // lblTime
             // 
             this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(257, 268);
+            this.lblTime.Location = new System.Drawing.Point(220, 232);
             this.lblTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblTime.MinimumSize = new System.Drawing.Size(175, 37);
+            this.lblTime.MinimumSize = new System.Drawing.Size(150, 32);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(175, 37);
+            this.lblTime.Size = new System.Drawing.Size(150, 32);
             this.lblTime.TabIndex = 6;
             this.lblTime.Text = "Time:";
             // 
             // lblCycles
             // 
             this.lblCycles.AutoSize = true;
-            this.lblCycles.Location = new System.Drawing.Point(257, 329);
+            this.lblCycles.Location = new System.Drawing.Point(220, 285);
             this.lblCycles.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblCycles.MinimumSize = new System.Drawing.Size(175, 37);
+            this.lblCycles.MinimumSize = new System.Drawing.Size(150, 32);
             this.lblCycles.Name = "lblCycles";
-            this.lblCycles.Size = new System.Drawing.Size(175, 37);
+            this.lblCycles.Size = new System.Drawing.Size(150, 32);
             this.lblCycles.TabIndex = 7;
             this.lblCycles.Text = "Cycles: ";
             // 
             // txtInput
             // 
-            this.txtInput.Location = new System.Drawing.Point(167, 31);
-            this.txtInput.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtInput.Location = new System.Drawing.Point(143, 27);
+            this.txtInput.Margin = new System.Windows.Forms.Padding(2);
             this.txtInput.Name = "txtInput";
-            this.txtInput.Size = new System.Drawing.Size(88, 23);
+            this.txtInput.Size = new System.Drawing.Size(76, 20);
             this.txtInput.TabIndex = 8;
             this.txtInput.Text = "100";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(164, 13);
+            this.label1.Location = new System.Drawing.Point(141, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 15);
+            this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 9;
             this.label1.Text = "Numbers:";
             // 
             // txtRange
             // 
-            this.txtRange.Location = new System.Drawing.Point(167, 73);
-            this.txtRange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtRange.Location = new System.Drawing.Point(143, 63);
+            this.txtRange.Margin = new System.Windows.Forms.Padding(2);
             this.txtRange.Name = "txtRange";
-            this.txtRange.Size = new System.Drawing.Size(88, 23);
+            this.txtRange.Size = new System.Drawing.Size(76, 20);
             this.txtRange.TabIndex = 10;
             this.txtRange.Text = "0-100";
             // 
             // lblRange
             // 
             this.lblRange.AutoSize = true;
-            this.lblRange.Location = new System.Drawing.Point(164, 54);
+            this.lblRange.Location = new System.Drawing.Point(141, 47);
             this.lblRange.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRange.Name = "lblRange";
-            this.lblRange.Size = new System.Drawing.Size(43, 15);
+            this.lblRange.Size = new System.Drawing.Size(42, 13);
             this.lblRange.TabIndex = 11;
             this.lblRange.Text = "Range:";
             // 
             // btnInput
             // 
-            this.btnInput.Location = new System.Drawing.Point(13, 341);
+            this.btnInput.Location = new System.Drawing.Point(11, 296);
             this.btnInput.Name = "btnInput";
-            this.btnInput.Size = new System.Drawing.Size(148, 69);
+            this.btnInput.Size = new System.Drawing.Size(127, 60);
             this.btnInput.TabIndex = 12;
             this.btnInput.Text = "Input file";
             this.btnInput.UseVisualStyleBackColor = true;
@@ -179,9 +180,9 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 422);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnInput);
             this.Controls.Add(this.lblRange);
             this.Controls.Add(this.txtRange);
@@ -195,11 +196,12 @@
             this.Controls.Add(this.lsbInput);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnGenerate);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

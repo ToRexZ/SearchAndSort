@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace SøgningOgSortering
 {
@@ -35,7 +36,7 @@ namespace SøgningOgSortering
                     { 
                         return int.Parse(val); 
                     }
-                    catch (Exception _e)
+                    catch (Exception)
                     {
                         MessageBox.Show("Could not parse string to int in 'Range'");
                         return 0;
@@ -62,7 +63,7 @@ namespace SøgningOgSortering
 
         private void btnSort_Click(object sender, EventArgs e)
         {
-            if (cmdMethod.SelectedIndex != -1)
+            if (cmbMethod.SelectedIndex != -1)
             {
                 var stopWatch = System.Diagnostics.Stopwatch.StartNew();
                 switch (cmbMethod.SelectedIndex)
@@ -77,7 +78,7 @@ namespace SøgningOgSortering
                         break;
 
                     case 2:
-                        lsbOutput.DataSource = Quicksort(lstRandom,0,lstRandom.Count -1);
+                        //lsbOutput.DataSource = Quicksort(lstRandom,0,lstRandom.Count -1);
                         break;
                 }
                 stopWatch.Stop();
@@ -224,6 +225,7 @@ namespace SøgningOgSortering
                 else return right;
             }
         }
+
         private void btnInput_Click(object sender, EventArgs e)
         {
             string path = Directory.GetCurrentDirectory();
@@ -246,7 +248,7 @@ namespace SøgningOgSortering
                 {
                     return int.Parse(val);
                 }
-                catch (Exception _e)
+                catch (Exception)
                 {
                     MessageBox.Show("Could not fully convert file to array");
                     return 0;
@@ -260,6 +262,5 @@ namespace SøgningOgSortering
             lsbInput.DataSource = lstRandom;
 
         }
-        
     }
 }
