@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Deployment.Internal;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace SøgningOgSortering
 {
@@ -20,20 +24,22 @@ namespace SøgningOgSortering
         {
             InitializeComponent();
         }
-        
+
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             lstRandom.Clear();
             Random randomNumber = new Random();
             ClearOut();
             ClearInp();
-            if (!string.IsNullOrWhiteSpace(txtRange.Text) && txtRange.Text.Contains("-") && !string.IsNullOrWhiteSpace(txtInput.Text))
+            if (!string.IsNullOrWhiteSpace(txtRange.Text) && txtRange.Text.Contains("-") &&
+                !string.IsNullOrWhiteSpace(txtInput.Text))
             {
-                
-                var subStrings = txtRange.Text.Split('-').Select(val => {
-                    try 
-                    { 
-                        return int.Parse(val); 
+
+                var subStrings = txtRange.Text.Split('-').Select(val =>
+                {
+                    try
+                    {
+                        return int.Parse(val);
                     }
                     catch (Exception _e)
                     {
@@ -49,6 +55,7 @@ namespace SøgningOgSortering
                     {
                         lstRandom.Add(randomNumber.Next(subStrings[0], subStrings[1] + 1));
                     }
+
                     lsbInput.DataSource = lstRandom;
                 }
                 else MessageBox.Show("Could not parse string to int in 'Numbers'");
@@ -62,7 +69,7 @@ namespace SøgningOgSortering
 
         private void btnSort_Click(object sender, EventArgs e)
         {
-            if (cmbMethod.SelectedIndex != -1) 
+            if (cmbMethod.SelectedIndex != -1)
             {
                 var stopWatch = System.Diagnostics.Stopwatch.StartNew();
                 switch (cmbMethod.SelectedIndex)
@@ -76,6 +83,7 @@ namespace SøgningOgSortering
                         cycles = 0;
                         break;
                 }
+
                 stopWatch.Stop();
                 lblTime.Text = "Time: " + stopWatch.ElapsedMilliseconds.ToString() + " ms";
             }
@@ -86,7 +94,7 @@ namespace SøgningOgSortering
 
         }
 
-        private List<int> Divide(List <int> lstRandom)
+        private List<int> Divide(List<int> lstRandom)
         {
             if (lstRandom.Count <= 1) return lstRandom;
 
@@ -108,13 +116,13 @@ namespace SøgningOgSortering
             left = Divide(left);
             right = Divide(right);
 
-            return Merge(left,right);
+            return Merge(left, right);
         }
 
         public List<int> Merge(List<int> left, List<int> right)
         {
             List<int> result = new List<int>();
-            
+
             while (left.Any() || right.Any())
             {
                 if (left.Any() && right.Any())
@@ -142,9 +150,10 @@ namespace SøgningOgSortering
                     result.Add(right.First());
                     right.Remove(right.First());
                 }
+
                 cycles++;
             }
-            
+
             return result;
         }
 
@@ -152,19 +161,20 @@ namespace SøgningOgSortering
         {
             int cycles = 0;
             lstSort = lstRandom;
-            for (int i = 0; i < lstSort.Count-1; i++)
+            for (int i = 0; i < lstSort.Count - 1; i++)
             {
-                for (int j = 0; j < lstSort.Count-1-i; j++)
+                for (int j = 0; j < lstSort.Count - 1 - i; j++)
                 {
                     cycles++;
-                    if (lstSort[j] > lstSort[j+1])
+                    if (lstSort[j] > lstSort[j + 1])
                     {
-                        int temp = lstSort[j+1];
-                        lstSort[j+1] = lstSort[j];
+                        int temp = lstSort[j + 1];
+                        lstSort[j + 1] = lstSort[j];
                         lstSort[j] = temp;
                     }
                 }
             }
+
             lblCycles.Text = "Cycles: " + cycles.ToString();
             return lstSort;
         }
@@ -186,5 +196,43 @@ namespace SøgningOgSortering
         {
             lsbInput.DataSource = null;
         }
+
+        private void btnInput_Click(object sender, EventArgs e)
+        {
+            string path = Directory.GetCurrentDirectory();
+            string fileName = Microsoft.VisualBasic.Interaction.InputBox("What is the name of the file?", "Title", "null", 0, 0);
+            string filepath = path + "/" + fileName;
+            string numbersFromFile;
+            try
+            {
+                numbersFromFile = File.ReadAllText(filepath);
+            }
+            catch (Exception FileNoWork)
+            {
+                Console.WriteLine(FileNoWork);
+                MessageBox.Show("Please Ensure Your Filename is correct");
+                return;
+            } 
+            int[] splitNumbersFromFile = numbersFromFile.Split(',').Select(val =>
+            {
+                try
+                {
+                    return int.Parse(val);
+                }
+                catch (Exception _e)
+                {
+                    MessageBox.Show("Could not fully convert file to array");
+                    return 0;
+                }
+            }).ToArray();
+            ClearInp();
+            foreach (int i in splitNumbersFromFile)
+            {
+                lstRandom.Add(i);
+            }
+            lsbInput.DataSource = lstRandom;
+
+        }
+        
     }
 }
