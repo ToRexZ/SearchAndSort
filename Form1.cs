@@ -35,7 +35,7 @@ namespace SøgningOgSortering
                     { 
                         return int.Parse(val); 
                     }
-                    catch (Exception)
+                    catch (Exception _e)
                     {
                         MessageBox.Show("Could not parse string to int in 'Range'");
                         return 0;
@@ -62,10 +62,10 @@ namespace SøgningOgSortering
 
         private void btnSort_Click(object sender, EventArgs e)
         {
-            if (cmdMethod.SelectedIndex != -1) 
+            if (cmdMethod.SelectedIndex != -1)
             {
                 var stopWatch = System.Diagnostics.Stopwatch.StartNew();
-                switch (cmdMethod.SelectedIndex)
+                switch (cmbMethod.SelectedIndex)
                 {
                     case 0:
                         lsbOutput.DataSource = BubbleSort();
@@ -94,20 +94,19 @@ namespace SøgningOgSortering
         {
             if (lstRandom.Count <= 1) return lstRandom;
 
-            List<int> lstSort = lstRandom;
             List<int> right = new List<int>();
             List<int> left = new List<int>();
 
-            int middle = lstSort.Count / 2;
+            int middle = lstRandom.Count / 2;
 
             for (int i = 0; i < middle; i++)
             {
-                left.Add(lstSort[i]);
+                left.Add(lstRandom[i]);
             }
 
-            for (int i = middle; i < lstSort.Count; i++)
+            for (int i = middle; i < lstRandom.Count; i++)
             {
-                right.Add(lstSort[i]);
+                right.Add(lstRandom[i]);
             }
 
             left = Divide(left);
@@ -225,5 +224,42 @@ namespace SøgningOgSortering
                 else return right;
             }
         }
+        private void btnInput_Click(object sender, EventArgs e)
+        {
+            string path = Directory.GetCurrentDirectory();
+            string fileName = Microsoft.VisualBasic.Interaction.InputBox("What is the name of the file?", "Title", "null", 0, 0);
+            string filepath = path + "/" + fileName;
+            string numbersFromFile;
+            try
+            {
+                numbersFromFile = File.ReadAllText(filepath);
+            }
+            catch (Exception FileNoWork)
+            {
+                Console.WriteLine(FileNoWork);
+                MessageBox.Show("Please Ensure Your Filename is correct");
+                return;
+            } 
+            int[] splitNumbersFromFile = numbersFromFile.Split(',').Select(val =>
+            {
+                try
+                {
+                    return int.Parse(val);
+                }
+                catch (Exception _e)
+                {
+                    MessageBox.Show("Could not fully convert file to array");
+                    return 0;
+                }
+            }).ToArray();
+            ClearInp();
+            foreach (int i in splitNumbersFromFile)
+            {
+                lstRandom.Add(i);
+            }
+            lsbInput.DataSource = lstRandom;
+
+        }
+        
     }
 }
