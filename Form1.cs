@@ -77,7 +77,7 @@ namespace SøgningOgSortering
                         break;
 
                     case 2:
-                        lsbOutput.DataSource = Quicksort(lstRandom);
+                        lsbOutput.DataSource = Quicksort(lstRandom,0,lstRandom.Count -1);
                         break;
                 }
                 stopWatch.Stop();
@@ -192,20 +192,38 @@ namespace SøgningOgSortering
             lsbInput.DataSource = null;
         }
 
-        public List<int> Quicksort(List<int> lstRandom, int left, int right)
+        public void Quicksort(List<int> lstRandom, int left, int right)
         {
             List<int> lstSort = lstRandom;
-
-            if (left < right)
-            int low = lstSort.First();
-            int high = lstSort.Last();
             
-            if (low < high)
+            if (left < right)
             {
-                
-            }
+                int pivot = Partition(lstSort,left,right);
 
-            return null;
+                if (pivot > 1) Quicksort(lstSort,left,pivot-1);
+                if (pivot +1 <right) Quicksort(lstSort,pivot+1,right);
+            }
+        }
+
+        private static int Partition(List<int> lstSort,int left,int right)
+        {
+            int pivot = lstSort[left];
+            while (true)
+            {
+                while (lstSort[left] < pivot) left++;
+
+                while (lstSort[right] > pivot) right--;
+
+                if (left < right)
+                {
+                    if (lstSort[left] == lstSort[right]) return right;
+
+                    int temp = lstSort[left];
+                    lstSort[left] = lstSort[right];
+                    lstSort[right] = temp;
+                }
+                else return right;
+            }
         }
     }
 }
