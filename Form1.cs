@@ -211,7 +211,7 @@ namespace SøgningOgSortering
             
         }
 
-        private static int Partition(List<int> PartTemp, int left, int right)
+        public int Partition(List<int> PartTemp, int left, int right)
         {
             if (left > right) return -1;
 
@@ -224,6 +224,7 @@ namespace SøgningOgSortering
                 {
                     Swap(PartTemp, i, end);
                     end++;
+
                 }
             }
             Swap(PartTemp, end, right);
@@ -274,5 +275,6 @@ namespace SøgningOgSortering
             lsbInput.DataSource = lstRandom;
 
         }
+
     }
 }

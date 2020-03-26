@@ -41,6 +41,15 @@
             this.txtRange = new System.Windows.Forms.TextBox();
             this.lblRange = new System.Windows.Forms.Label();
             this.btnInput = new System.Windows.Forms.Button();
+            this.lblSearch = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.FirstIndex = new System.Windows.Forms.Label();
+            this.lblFirst = new System.Windows.Forms.Label();
+            this.LastIndex = new System.Windows.Forms.Label();
+            this.lblLast = new System.Windows.Forms.Label();
+            this.Count = new System.Windows.Forms.Label();
+            this.lblCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGenerate
@@ -178,11 +187,97 @@
             this.btnInput.UseVisualStyleBackColor = true;
             this.btnInput.Click += new System.EventHandler(this.btnInput_Click);
             // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Location = new System.Drawing.Point(596, 11);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(97, 13);
+            this.lblSearch.TabIndex = 13;
+            this.lblSearch.Text = "Search for number:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(599, 27);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(100, 20);
+            this.txtSearch.TabIndex = 14;
+            // 
+            // FirstIndex
+            // 
+            this.FirstIndex.AutoSize = true;
+            this.FirstIndex.Location = new System.Drawing.Point(596, 63);
+            this.FirstIndex.Name = "FirstIndex";
+            this.FirstIndex.Size = new System.Drawing.Size(58, 13);
+            this.FirstIndex.TabIndex = 15;
+            this.FirstIndex.Text = "First Index:";
+            // 
+            // lblFirst
+            // 
+            this.lblFirst.AutoSize = true;
+            this.lblFirst.Location = new System.Drawing.Point(658, 63);
+            this.lblFirst.Name = "lblFirst";
+            this.lblFirst.Size = new System.Drawing.Size(10, 13);
+            this.lblFirst.TabIndex = 16;
+            this.lblFirst.Text = "-";
+            // 
+            // LastIndex
+            // 
+            this.LastIndex.AutoSize = true;
+            this.LastIndex.Location = new System.Drawing.Point(596, 84);
+            this.LastIndex.Name = "LastIndex";
+            this.LastIndex.Size = new System.Drawing.Size(59, 13);
+            this.LastIndex.TabIndex = 17;
+            this.LastIndex.Text = "Last Index:";
+            // 
+            // lblLast
+            // 
+            this.lblLast.AutoSize = true;
+            this.lblLast.Location = new System.Drawing.Point(658, 84);
+            this.lblLast.Name = "lblLast";
+            this.lblLast.Size = new System.Drawing.Size(10, 13);
+            this.lblLast.TabIndex = 18;
+            this.lblLast.Text = "-";
+            // 
+            // Count
+            // 
+            this.Count.AutoSize = true;
+            this.Count.Location = new System.Drawing.Point(596, 105);
+            this.Count.Name = "Count";
+            this.Count.Size = new System.Drawing.Size(38, 13);
+            this.Count.TabIndex = 19;
+            this.Count.Text = "Count:";
+            // 
+            // lblCount
+            // 
+            this.lblCount.AutoSize = true;
+            this.lblCount.Location = new System.Drawing.Point(658, 105);
+            this.lblCount.Name = "lblCount";
+            this.lblCount.Size = new System.Drawing.Size(10, 13);
+            this.lblCount.TabIndex = 20;
+            this.lblCount.Text = "-";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(712, 366);
+            this.Controls.Add(this.lblCount);
+            this.Controls.Add(this.Count);
+            this.Controls.Add(this.lblLast);
+            this.Controls.Add(this.LastIndex);
+            this.Controls.Add(this.lblFirst);
+            this.Controls.Add(this.FirstIndex);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.btnInput);
             this.Controls.Add(this.lblRange);
             this.Controls.Add(this.txtRange);
@@ -219,6 +314,15 @@
         private System.Windows.Forms.TextBox txtRange;
         private System.Windows.Forms.Label lblRange;
         private System.Windows.Forms.Button btnInput;
+        private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label FirstIndex;
+        private System.Windows.Forms.Label lblFirst;
+        private System.Windows.Forms.Label LastIndex;
+        private System.Windows.Forms.Label lblLast;
+        private System.Windows.Forms.Label Count;
+        private System.Windows.Forms.Label lblCount;
     }
 }
 
