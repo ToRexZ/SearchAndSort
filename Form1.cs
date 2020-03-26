@@ -78,8 +78,8 @@ namespace SøgningOgSortering
                         break;
 
                     case 2:
-                        lsbOutput.DataSource = Quicksort(lstRandom,0,lstRandom.Count -1);
-
+                        Quicksort(lstRandom,0,lstRandom.Count - 1);
+                        lsbOutput.DataSource = lstRandom;
                         break;
                 }
                 stopWatch.Stop();
@@ -193,37 +193,35 @@ namespace SøgningOgSortering
             lsbInput.DataSource = null;
         }
 
-        public List<int> Quicksort(List<int> lstRandom, int left, int right)
-        {
-            List<int> lstSort = lstRandom;
-            
+        private static void Quicksort(List<int> lstRandom, int left, int right)
+        {  
             if (left < right)
             {
-                int pivot = Partition(lstSort,left,right);
+                int pivot = Partition(lstRandom,left,right);
 
-                if (pivot > 1) Quicksort(lstSort,left,pivot-1);
-                if (pivot + 1 <right) Quicksort(lstSort,pivot+1,right);
+                if (pivot > 1) Quicksort(lstRandom,left,pivot-1);
+                if (pivot + 1 < right) Quicksort(lstRandom,pivot+1,right);
             }
-            return lstSort;
         }
 
-        private static int Partition(List<int> lstSort,int left,int right)
+        private static int Partition(List<int> lstSortTemp, int left, int right)
         {
             //MessageBox.Show("Test");
-            int pivot = lstSort[left];
+            int pivot = lstSortTemp[left];
+
             while (true)
             {
-                while (lstSort[left] < pivot) left++;
+                while (lstSortTemp[left] < pivot) left++;
 
-                while (lstSort[right] > pivot) right--;
+                while (lstSortTemp[right] > pivot) right--;
 
                 if (left < right)
                 {
-                    if (lstSort[left] == lstSort[right]) return right;
+                    if (lstSortTemp[left] == lstSortTemp[right]) return right;
 
-                    int temp = lstSort[left];
-                    lstSort[left] = lstSort[right];
-                    lstSort[right] = temp;
+                    int temp = lstSortTemp[left];
+                    lstSortTemp[left] = lstSortTemp[right];
+                    lstSortTemp[right] = temp;
                 }
                 else return right;
             }
