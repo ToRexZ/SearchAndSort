@@ -16,6 +16,7 @@ namespace SøgningOgSortering
         List<int> lstRandom = new List<int>();
         List<int> lstSort = new List<int>();
         public int cycles = 0;
+        private List<int> sorted;
 
         public Form1()
         {
@@ -69,10 +70,13 @@ namespace SøgningOgSortering
                 switch (cmbMethod.SelectedIndex)
                 {
                     case 0:
-                        lsbOutput.DataSource = BubbleSort();
+                        
+                        sorted = BubbleSort();
+                        lsbOutput.DataSource = sorted;
                         break;
                     case 1:
-                        lsbOutput.DataSource = Divide(lstRandom);
+                        sorted = Divide(lstRandom);
+                        lsbOutput.DataSource = sorted;
                         lblCycles.Text = "Cycles: " + cycles.ToString();
                         cycles = 0;
                         break;
@@ -279,6 +283,25 @@ namespace SøgningOgSortering
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnOutput_Click(object sender, EventArgs e)
+        {
+            
+            string path = Directory.GetCurrentDirectory();
+            string fileName = Microsoft.VisualBasic.Interaction.InputBox("What is the name of the file?", "Title", "null", 0, 0);
+            string filePath = path + "/" + fileName;
+            try
+            {
+                string outString = string.Join<int>(",",sorted);
+                File.WriteAllText(filePath,outString);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Could not turn output into file");
+                return;
+            }
+            
         }
     }
 }
