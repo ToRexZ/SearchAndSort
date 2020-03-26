@@ -193,38 +193,45 @@ namespace SøgningOgSortering
             lsbInput.DataSource = null;
         }
 
-        private static void Quicksort(List<int> lstRandom, int left, int right)
-        {  
-            if (left < right)
-            {
-                int pivot = Partition(lstRandom,left,right);
+        //Quicksort metoden er implementeret på baggrund af: https://codereview.stackexchange.com/questions/142808/quick-sort-algorithm
+        private static void Quicksort(List<int> Temp, int left, int right)
+        {
+            if (left > right || left < 0 || right < 0) return;
 
-                if (pivot > 1) Quicksort(lstRandom,left,pivot-1);
-                if (pivot + 1 < right) Quicksort(lstRandom,pivot+1,right);
+            int index = Partition(Temp, left, right);
+
+            if (index != -1)
+            {
+                Quicksort(Temp, left, index - 1);
+                Quicksort(Temp, index + 1, right);
             }
         }
 
-        private static int Partition(List<int> lstSortTemp, int left, int right)
+        private static int Partition(List<int> PartTemp, int left, int right)
         {
-            //MessageBox.Show("Test");
-            int pivot = lstSortTemp[left];
+            if (left > right) return -1;
 
-            while (true)
+            int end = left;
+            int pivot = PartTemp[right];
+
+            for (int i = left; i < right; i++)
             {
-                while (lstSortTemp[left] < pivot) left++;
-
-                while (lstSortTemp[right] > pivot) right--;
-
-                if (left < right)
+                if (PartTemp[i] < pivot)
                 {
-                    if (lstSortTemp[left] == lstSortTemp[right]) return right;
-
-                    int temp = lstSortTemp[left];
-                    lstSortTemp[left] = lstSortTemp[right];
-                    lstSortTemp[right] = temp;
+                    Swap(PartTemp, i, end);
+                    end++;
                 }
-                else return right;
             }
+            Swap(PartTemp, end, right);
+
+            return end;
+        }
+
+        private static void Swap(List<int> partTemp1, int left, int right)
+        {
+            int tmp = partTemp1[left];
+            partTemp1[left] = partTemp1[right];
+            partTemp1[right] = tmp;
         }
 
         private void btnInput_Click(object sender, EventArgs e)
