@@ -276,5 +276,9 @@ namespace SøgningOgSortering
 
         }
 
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

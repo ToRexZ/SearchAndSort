@@ -42,7 +42,6 @@
             this.lblRange = new System.Windows.Forms.Label();
             this.btnInput = new System.Windows.Forms.Button();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.FirstIndex = new System.Windows.Forms.Label();
             this.lblFirst = new System.Windows.Forms.Label();
@@ -196,19 +195,13 @@
             this.lblSearch.TabIndex = 13;
             this.lblSearch.Text = "Search for number:";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
-            // 
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(599, 27);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(100, 20);
             this.txtSearch.TabIndex = 14;
+            this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
             // 
             // FirstIndex
             // 
@@ -276,7 +269,6 @@
             this.Controls.Add(this.lblFirst);
             this.Controls.Add(this.FirstIndex);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.btnInput);
             this.Controls.Add(this.lblRange);
@@ -315,7 +307,6 @@
         private System.Windows.Forms.Label lblRange;
         private System.Windows.Forms.Button btnInput;
         private System.Windows.Forms.Label lblSearch;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label FirstIndex;
         private System.Windows.Forms.Label lblFirst;
