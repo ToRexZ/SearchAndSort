@@ -80,6 +80,8 @@ namespace SøgningOgSortering
                     case 2:
                         Quicksort(lstRandom,0,lstRandom.Count - 1);
                         lsbOutput.DataSource = lstRandom;
+                        lblCycles.Text = "Cycles: " + cycles.ToString();
+                        cycles = 0;
                         break;
                 }
                 stopWatch.Stop();
@@ -194,8 +196,9 @@ namespace SøgningOgSortering
         }
 
         //Quicksort metoden er implementeret på baggrund af: https://codereview.stackexchange.com/questions/142808/quick-sort-algorithm
-        private static void Quicksort(List<int> Temp, int left, int right)
+        public void Quicksort(List<int> Temp, int left, int right)
         {
+            cycles++;
             if (left > right || left < 0 || right < 0) return;
 
             int index = Partition(Temp, left, right);
@@ -205,6 +208,7 @@ namespace SøgningOgSortering
                 Quicksort(Temp, left, index - 1);
                 Quicksort(Temp, index + 1, right);
             }
+            
         }
 
         private static int Partition(List<int> PartTemp, int left, int right)
