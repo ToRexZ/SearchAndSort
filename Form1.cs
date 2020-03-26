@@ -285,23 +285,23 @@ namespace SøgningOgSortering
 
         }
 
-        private void BtnOutput_Click(object sender, EventArgs e)
+        private void BtnOutput_Click_1(object sender, EventArgs e)
         {
-            
+
             string path = Directory.GetCurrentDirectory();
             string fileName = Microsoft.VisualBasic.Interaction.InputBox("What is the name of the file?", "Title", "null", 0, 0);
             string filePath = path + "/" + fileName;
             try
             {
-                string outString = string.Join<int>(",",sorted);
-                File.WriteAllText(filePath,outString);
+                string outString = string.Join<int>(",", sorted);
+                File.WriteAllText(filePath, outString);
             }
             catch (Exception)
             {
                 MessageBox.Show("Could not turn output into file");
                 return;
             }
-            
+
         }
     }
 }
