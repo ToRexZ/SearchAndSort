@@ -194,6 +194,15 @@ namespace SøgningOgSortering
             lsbOutput.DataSource = null;
             lblCycles.Text = "Cycles: ";
             lblTime.Text = "Time: ";
+
+            //search clearing:
+            lblCount.Text = "-";
+            lblFirst.Text = "-";
+            lblLast.Text = "-";
+            lblSCycles.Text = "-";
+            txtSearch.Text = "";
+
+
         }
 
         public void ClearInp()
