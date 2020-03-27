@@ -354,6 +354,7 @@ namespace SøgningOgSortering
 
         }
 
+        //Binary search implemtation: https://www.youtube.com/watch?v=fOMh45TT0BI
         public static int binarySearch(List<int> list, int x, out int scycles)
         {
             scycles = 0;
