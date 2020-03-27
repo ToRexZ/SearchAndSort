@@ -50,6 +50,8 @@
             this.Count = new System.Windows.Forms.Label();
             this.lblCount = new System.Windows.Forms.Label();
             this.BtnOutput = new System.Windows.Forms.Button();
+            this.searchCycles = new System.Windows.Forms.Label();
+            this.lblSCycles = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnGenerate
@@ -267,11 +269,31 @@
             this.BtnOutput.Text = "Output to file";
             this.BtnOutput.Click += new System.EventHandler(this.BtnOutput_Click_1);
             // 
+            // searchCycles
+            // 
+            this.searchCycles.AutoSize = true;
+            this.searchCycles.Location = new System.Drawing.Point(608, 105);
+            this.searchCycles.Name = "searchCycles";
+            this.searchCycles.Size = new System.Drawing.Size(41, 13);
+            this.searchCycles.TabIndex = 22;
+            this.searchCycles.Text = "Cycles:";
+            // 
+            // lblSCycles
+            // 
+            this.lblSCycles.AutoSize = true;
+            this.lblSCycles.Location = new System.Drawing.Point(672, 105);
+            this.lblSCycles.Name = "lblSCycles";
+            this.lblSCycles.Size = new System.Drawing.Size(10, 13);
+            this.lblSCycles.TabIndex = 23;
+            this.lblSCycles.Text = "-";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(713, 366);
+            this.Controls.Add(this.lblSCycles);
+            this.Controls.Add(this.searchCycles);
             this.Controls.Add(this.lblCount);
             this.Controls.Add(this.Count);
             this.Controls.Add(this.lblLast);
@@ -326,6 +348,8 @@
         private System.Windows.Forms.Label lblLast;
         private System.Windows.Forms.Label Count;
         private System.Windows.Forms.Label lblCount;
+        private System.Windows.Forms.Label searchCycles;
+        private System.Windows.Forms.Label lblSCycles;
     }
 }
 

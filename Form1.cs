@@ -22,7 +22,7 @@ namespace SøgningOgSortering
         {
             InitializeComponent();
         }
-        
+
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             lstRandom.Clear();
@@ -31,11 +31,12 @@ namespace SøgningOgSortering
             ClearInp();
             if (!string.IsNullOrWhiteSpace(txtRange.Text) && txtRange.Text.Contains("-") && !string.IsNullOrWhiteSpace(txtInput.Text))
             {
-                
-                var subStrings = txtRange.Text.Split('-').Select(val => {
-                    try 
-                    { 
-                        return int.Parse(val); 
+
+                var subStrings = txtRange.Text.Split('-').Select(val =>
+                {
+                    try
+                    {
+                        return int.Parse(val);
                     }
                     catch (Exception)
                     {
@@ -70,7 +71,7 @@ namespace SøgningOgSortering
                 switch (cmbMethod.SelectedIndex)
                 {
                     case 0:
-                        
+
                         sorted = BubbleSort();
                         lsbOutput.DataSource = sorted;
                         break;
@@ -82,7 +83,8 @@ namespace SøgningOgSortering
                         break;
 
                     case 2:
-                        Quicksort(lstRandom,0,lstRandom.Count - 1);
+                        Quicksort(lstRandom, 0, lstRandom.Count - 1);
+                        sorted = lstRandom;
                         lsbOutput.DataSource = lstRandom;
                         lblCycles.Text = "Cycles: " + cycles.ToString();
                         cycles = 0;
@@ -98,7 +100,7 @@ namespace SøgningOgSortering
 
         }
 
-        private List<int> Divide(List <int> lstRandom)
+        private List<int> Divide(List<int> lstRandom)
         {
             if (lstRandom.Count <= 1) return lstRandom;
 
@@ -120,13 +122,13 @@ namespace SøgningOgSortering
             left = Divide(left);
             right = Divide(right);
 
-            return Merge(left,right);
+            return Merge(left, right);
         }
 
         public List<int> Merge(List<int> left, List<int> right)
         {
             List<int> result = new List<int>();
-            
+
             while (left.Any() || right.Any())
             {
                 if (left.Any() && right.Any())
@@ -156,7 +158,7 @@ namespace SøgningOgSortering
                 }
                 cycles++;
             }
-            
+
             return result;
         }
 
@@ -164,15 +166,15 @@ namespace SøgningOgSortering
         {
             int cycles = 0;
             lstSort = lstRandom;
-            for (int i = 0; i < lstSort.Count-1; i++)
+            for (int i = 0; i < lstSort.Count - 1; i++)
             {
-                for (int j = 0; j < lstSort.Count-1-i; j++)
+                for (int j = 0; j < lstSort.Count - 1 - i; j++)
                 {
                     cycles++;
-                    if (lstSort[j] > lstSort[j+1])
+                    if (lstSort[j] > lstSort[j + 1])
                     {
-                        int temp = lstSort[j+1];
-                        lstSort[j+1] = lstSort[j];
+                        int temp = lstSort[j + 1];
+                        lstSort[j + 1] = lstSort[j];
                         lstSort[j] = temp;
                     }
                 }
@@ -212,7 +214,7 @@ namespace SøgningOgSortering
                 Quicksort(Temp, left, index - 1);
                 Quicksort(Temp, index + 1, right);
             }
-            
+
         }
 
         public int Partition(List<int> PartTemp, int left, int right)
@@ -258,7 +260,7 @@ namespace SøgningOgSortering
                 Console.WriteLine(FileNoWork);
                 MessageBox.Show("Please Ensure Your Filename is correct");
                 return;
-            } 
+            }
             int[] splitNumbersFromFile = numbersFromFile.Split(',').Select(val =>
             {
                 try
@@ -282,7 +284,90 @@ namespace SøgningOgSortering
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
+            lblCount.Text = "-";
+            lblFirst.Text = "-";
+            lblLast.Text = "-";
+            lblSCycles.Text = "-";
 
+            if (txtSearch.Text == "")
+            {
+                return;
+            }
+
+            int number = Int32.Parse(txtSearch.Text);
+            int scycles;
+            int first, last;
+            int count = 0;
+
+            int indexFound = binarySearch(sorted, number, out scycles);
+
+            int test = indexFound;
+            if (test != -1)
+            {
+                while (number == sorted[test])
+                {
+                    if (test == 0)
+                        break;
+                    else
+                        test--;
+
+                }
+                if (test != 0)
+                    test++;
+
+                first = test;
+
+                test = indexFound;
+
+                while (number == sorted[test])
+                {
+                    if (test == 99)
+                        break;
+                    else
+                        test++;
+                }
+                if (test != 99)
+                    test--;
+
+                last = test;
+
+                lblFirst.Text = first.ToString();
+                lblLast.Text = last.ToString();
+
+                lblSCycles.Text = scycles.ToString();
+
+                count = last - first + 1;
+
+
+                
+            }
+            lblCount.Text = count.ToString();
+
+        }
+
+        public static int binarySearch(List<int> list, int x, out int scycles)
+        {
+            scycles = 0;
+            if (list == null)
+                return -1;
+            int left = 0;
+            int right = list.Count - 1;
+
+            while (left <= right)
+            {
+                scycles++;
+
+                var middle = (left + right) / 2;
+
+                if (list[middle] == x)
+                    return middle;
+
+                if (x < list[middle])
+                    right = middle - 1;
+                else
+                    left = middle + 1;
+            }
+            return -1;
         }
 
         private void BtnOutput_Click_1(object sender, EventArgs e)
