@@ -86,7 +86,6 @@ namespace SøgningOgSortering
                     case 0: //BubbleSort
                         sorted = BubbleSort(); // her kalder vi vores bubblesortalgoritme, vis returnering smider vi ind i listen "Sorted"
                         lsbOutput.DataSource = sorted; //dernæst sætter vi listboxen til vores output, til at være sorted. 
-                        lblCycles.Text = "Cycles: " + cycles.ToString(); //Her skriver vi antallet af cycles ud på vores label. 
                         break;
                     case 1: //MergeSort
                         sorted = Divide(lstRandom); //Her kalder vi vores første af de to funktioner til mergesort, og giver den argumentet lstRandom. 
@@ -99,7 +98,7 @@ namespace SøgningOgSortering
                         Quicksort(lstRandom, 0, lstRandom.Count - 1); //Her kalder vi vores quicksortalgoritme og giver den 3 argumenter, som er specifikationer på lstRandom. 
                         sorted = lstRandom; // her sætter vi lst random til at være vores sorted liste. Da vores quicksortalgoritme er bygget sådan op 
                         lsbOutput.DataSource = sorted; // dernæst sætter vi listboxen til vores output, til at være sorted.
-                         lblCycles.Text = "Cycles: " + cycles.ToString(); //Her skriver vi antallet af cycles ud på vores label.
+                        lblCycles.Text = "Cycles: " + cycles.ToString(); //Her skriver vi antallet af cycles ud på vores label.
                         cycles = 0;  //her resetter vi cycles til at være 0.
                         break;
                 }
@@ -216,6 +215,7 @@ namespace SøgningOgSortering
                     }
                 }
             }
+            lblCycles.Text = "Cycles: " + cycles.ToString(); //Her skriver vi antallet af cycles ud på vores label. 
             return lstSort; // Her returnerer vi så den liste som er blevet sorteret. 
         }
 
