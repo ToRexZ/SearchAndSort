@@ -303,7 +303,14 @@ namespace SøgningOgSortering
                 return;
             }
 
-            int number = Int32.Parse(txtSearch.Text);
+            int number;
+
+            bool succes = Int32.TryParse(txtSearch.Text,out number);
+            if (!succes)
+            {
+                MessageBox.Show("Could not search for: " + txtSearch.Text);
+            }
+
             int scycles;
             int first, last;
             int count = 0;
