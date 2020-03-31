@@ -305,7 +305,7 @@ namespace SøgningOgSortering
 
             int number;
 
-            bool succes = Int32.TryParse(txtSearch.Text,out number);
+            bool succes = Int32.TryParse(txtSearch.Text, out number);
             if (!succes)
             {
                 MessageBox.Show("Could not search for: " + txtSearch.Text);
@@ -316,7 +316,7 @@ namespace SøgningOgSortering
             int count = 0;
 
             int indexFound = binarySearch(sorted, number, out scycles);
-            bool index = false;
+            bool indexLow = false, indexHigh = false;
             int test = indexFound;
             if (test != -1)
             {
@@ -327,12 +327,12 @@ namespace SøgningOgSortering
                     else
                     {
                         test--;
-                        index = true;
+                        indexLow = true;
                     }
 
 
                 }
-                if (test != 0||index)
+                if (test != 0 || indexLow)
                     test++;
 
                 first = test;
@@ -341,12 +341,16 @@ namespace SøgningOgSortering
 
                 while (number == sorted[test])
                 {
-                    if (test == sorted.Count-1)
+                    if (test == sorted.Count - 1)
                         break;
                     else
+                    {
                         test++;
+                        indexHigh = true;
+                    }
+
                 }
-                if (test != sorted.Count-1)
+                if (test != sorted.Count - 1 || indexHigh)
                     test--;
 
                 last = test;
@@ -359,7 +363,7 @@ namespace SøgningOgSortering
                 count = last - first + 1;
 
 
-                
+
             }
             lblCount.Text = count.ToString();
 
