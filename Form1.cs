@@ -316,7 +316,7 @@ namespace SøgningOgSortering
             int count = 0;
 
             int indexFound = binarySearch(sorted, number, out scycles);
-
+            bool index = false;
             int test = indexFound;
             if (test != -1)
             {
@@ -325,10 +325,14 @@ namespace SøgningOgSortering
                     if (test == 0)
                         break;
                     else
+                    {
                         test--;
+                        index = true;
+                    }
+
 
                 }
-                if (test != 0)
+                if (test != 0||index)
                     test++;
 
                 first = test;
@@ -337,12 +341,12 @@ namespace SøgningOgSortering
 
                 while (number == sorted[test])
                 {
-                    if (test == 99)
+                    if (test == sorted.Count-1)
                         break;
                     else
                         test++;
                 }
-                if (test != 99)
+                if (test != sorted.Count-1)
                     test--;
 
                 last = test;
