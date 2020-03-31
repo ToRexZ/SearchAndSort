@@ -312,22 +312,23 @@ namespace SøgningOgSortering
             partTemp1[right] = tmp;
         }
 
-        private void btnInput_Click(object sender, EventArgs e)
+        private void btnInput_Click(object sender, EventArgs e) //I denne funktion tager vi en fil med tal der er komma sepererede og laver et array af det.
         {
-            string path = Directory.GetCurrentDirectory();
-            string fileName = Microsoft.VisualBasic.Interaction.InputBox("What is the name of the file?", "Title", "null", 0, 0);
+            string path = Directory.GetCurrentDirectory(); //Her får vi directorien af hvor programmet bliver kørt
+            string fileName = Microsoft.VisualBasic.Interaction.InputBox("What is the name of the file?", "Title", "null", 0, 0);//Her laver vi en messageBox med et input
             string filepath = path + "/" + fileName;
             string numbersFromFile;
             try
             {
-                numbersFromFile = File.ReadAllText(filepath);
+                numbersFromFile = File.ReadAllText(filepath);//Her prøver vi at læse filen
             }
-            catch (Exception FileNoWork)
+            catch (Exception FileNoWork)//Hvis filen ikke eksistere
             {
                 Console.WriteLine(FileNoWork);
                 MessageBox.Show("Please Ensure Your Filename is correct");
                 return;
             }
+            //Her prøver vi at splitte filen per komma og smide det i et int array efter det er blevet konverteret
             int[] splitNumbersFromFile = numbersFromFile.Split(',').Select(val =>
             {
                 try
@@ -336,12 +337,12 @@ namespace SøgningOgSortering
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Could not fully convert file to array");
+                    MessageBox.Show("Could not fully convert file to array");//Hvis der er dele der ikke kan konverteres bliver de til 0 istedet for
                     return 0;
                 }
             }).ToArray();
             ClearInp();
-            foreach (int i in splitNumbersFromFile)
+            foreach (int i in splitNumbersFromFile) //Her ligger vi elementerne i listen lstRandom
             {
                 lstRandom.Add(i);
             }
@@ -471,16 +472,16 @@ namespace SøgningOgSortering
             return -1;
         }
 
-        private void BtnOutput_Click_1(object sender, EventArgs e)
+        private void BtnOutput_Click_1(object sender, EventArgs e) //Her laver vi en output fil
         {
 
-            string path = Directory.GetCurrentDirectory();
-            string fileName = Microsoft.VisualBasic.Interaction.InputBox("What is the name of the file?", "Title", "null", 0, 0);
+            string path = Directory.GetCurrentDirectory(); //Her får vi directorien af hvor programmet bliver kørt
+            string fileName = Microsoft.VisualBasic.Interaction.InputBox("What is the name of the file?", "Title", "null", 0, 0); //Her laver vi en messageBox med et input
             string filePath = path + "/" + fileName;
             try
             {
-                string outString = string.Join<int>(",", sorted);
-                File.WriteAllText(filePath, outString);
+                string outString = string.Join<int>(",", sorted); //Her prøver vi at sætte listen sammen til en string så dette kan outputtes som en fil.
+                File.WriteAllText(filePath, outString); //Her laver vi filen og skriver dertil, denne funktion er destruktiv så hvis der er en fil med dette navn bliver den overwrited
             }
             catch (Exception)
             {
